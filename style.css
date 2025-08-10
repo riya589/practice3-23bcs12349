@@ -1,0 +1,171 @@
+/* Light Theme (default) */
+:root {
+    --header-bg: #4CAF50;
+    --sidebar-bg: #f0f0f0;
+    --main-bg: #fff;
+    --footer-bg: #4CAF50;
+    --text-color: black;
+    --link-color: #4CAF50;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Layout */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    /* Removed height: 100vh for better responsiveness */
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    grid-area: header;
+    padding: 1rem;
+    background: var(--header-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    grid-area: sidebar;
+    padding: 1rem;
+    background: var(--sidebar-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.sidebar a {
+    color: var(--link-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    color: var(--link-color);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1rem;
+    background: var(--main-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.footer {
+    grid-area: footer;
+    padding: 0.5rem;
+    text-align: center;
+    background: var(--footer-bg);
+    color: var(--text-color);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+}
+
+/* Theme Toggle Styles */
+#theme-toggle {
+    display: none;
+}
+
+.theme-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background: #ccc;
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #999;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-label:hover {
+    background: #bbb;
+    color: black;
+}
+
+.theme-label.dark {
+    background: #555;
+    color: white;
+}
+
+.theme-label.light {
+    background: #ccc;
+    color: black;
+}
+
+/* Dark Theme */
+#theme-toggle:checked ~ .container {
+    --header-bg: #333;
+    --sidebar-bg: #222;
+    --main-bg: #111;
+    --footer-bg: #333;
+    --text-color: white;
+    --link-color: #90caf9;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 180px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    .sidebar {
+        display: block;
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .theme-label {
+        display: block;
+        text-align: center;
+        width: fit-content;
+        margin: 0.5rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.2rem;
+    }
+
+    .main-content h2 {
+        font-size: 1rem;
+    }
+
+    .main-content p {
+        font-size: 0.9rem;
+    }
+
+    .sidebar a {
+        padding: 0.3rem 0;
+        font-size: 0.9rem;
+    }
+}
