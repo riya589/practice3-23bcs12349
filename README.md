@@ -3,7 +3,7 @@
 A responsive admin dashboard built with **HTML** and **CSS Grid**, featuring a pure CSS **light/dark theme toggle**.
 
 ## Demo
-[View Live Demo](https://admin-dashboard-23bcs12349.netlify.app/)
+https://admin-dashboard-23bcs12349.netlify.app/
 
 ## Features
 - Responsive layout using CSS Grid
